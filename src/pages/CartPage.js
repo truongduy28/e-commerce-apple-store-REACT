@@ -38,7 +38,7 @@ const CartPage = () => {
     product: products,
     sdt: "",
     address: "",
-    userId: logedUser._id,
+    userId: logedUser ? logedUser._id : null,
     total: getTotalPrice(),
   });
 
