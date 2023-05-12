@@ -3,7 +3,6 @@ import Header from "../components/Layout/Header";
 import Services from "../components/Layout/Services";
 import Newsletter from "../components/Layout/Newsletter";
 import Footer from "../components/Layout/Footer";
-import ProductDetails from "../components/ProductDetails";
 import "./style.css";
 import Sliderbar from "./../components/Layout/Sliderbar";
 import CategoriesRandom from "../components/Layout/CategoriesRandom";

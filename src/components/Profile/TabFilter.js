@@ -8,7 +8,7 @@ const TabFilter = ({ filterState }) => {
     { en: "Comfirmed", vn: "Đã xác nhận" },
     { en: "Shipping", vn: "Đang giao hàng" },
     { en: "Done", vn: "Đã giao hàng" },
-    { en: "Cancel", vn: "Đã hủy" },
+    { en: "Cancel", vn: "Hủy đơn" },
   ];
 
   return (

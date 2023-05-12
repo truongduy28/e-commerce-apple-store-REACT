@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import Header from "../components/Layout/Header";
@@ -36,53 +37,53 @@ function OrderPage() {
       <Header />
       <div className="container">
         {isLoading ? (
-          <h2>Loading...</h2>
+          <h2 className="text-center py-5">Loading...</h2>
         ) : (
           order && (
             <div className="border width-75 p-4 shadow-customize">
-              <h2 className="text-center mb-4">Your Order </h2>
+              <h3 className="text-center mb-4">Your Order </h3>
               <div className="d-flex">
                 <div
                   style={{ flex: 1, borderWidth: "2px" }}
                   className="border-right"
                 >
                   <div className="info d-flex  align-items-center gap-2">
-                    <h4>Fullname of reciver: </h4>
-                    <h4>{order.name}</h4>
+                    <p>Fullname of reciver: </p>
+                    <p>{order.name}</p>
                   </div>
                   <div className="info d-flex  align-items-center gap-2">
-                    <h4>Number phone of reciver: </h4>
-                    <h4>{order.sdt}</h4>
+                    <p>Number phone of reciver: </p>
+                    <p>{order.sdt}</p>
                   </div>
                   <div className="info d-flex  align-items-center gap-2">
-                    <h4>Address shipment: </h4>
-                    <h4>{order.address}</h4>
+                    <p>Address shipment: </p>
+                    <p>{order.address}</p>
                   </div>
                   <div className="info d-flex  align-items-center gap-2">
-                    <h4>Account buy: </h4>
-                    <h4>{order.boughtBy.name}</h4>
+                    <p>Account buy: </p>
+                    <p>{order.boughtBy.name}</p>
                   </div>
                   <div className="info d-flex  align-items-center gap-2">
-                    <h4>Email: </h4>
-                    <h4>{order.boughtBy.email}</h4>
+                    <p>Email: </p>
+                    <p>{order.boughtBy.email}</p>
                   </div>
                 </div>
                 <div style={{ flex: 1 }}>
                   <div className="info d-flex  align-items-center justify-content-end gap-2">
-                    <h4>Total amount: </h4>
-                    <h4>{formatPrice(order.total)} vnđ</h4>
+                    <p>Total amount: </p>
+                    <p>{formatPrice(order.total)} vnđ</p>
                   </div>
                   <div className="info d-flex  align-items-center justify-content-end gap-2">
-                    <h4>Total product quantity: </h4>
-                    <h4>{totalProductQuantity} item</h4>
+                    <p>Total product quantity: </p>
+                    <p>{totalProductQuantity} item</p>
                   </div>
                   <div className="info d-flex  align-items-center justify-content-end gap-2">
-                    <h4>Booked date: </h4>
-                    <h4>{formatHHMMDDMMYYY(order.createdAt)} </h4>
+                    <p>Booked date: </p>
+                    <p>{formatHHMMDDMMYYY(order.createdAt)} </p>
                   </div>
                   <div className="info d-flex  align-items-center justify-content-end gap-2">
-                    <h4>Updated last time: </h4>
-                    <h4>{formatHHMMDDMMYYY(order.updatedAt)} </h4>
+                    <p>Updated last time: </p>
+                    <p>{formatHHMMDDMMYYY(order.updatedAt)} </p>
                   </div>
                 </div>
               </div>
@@ -122,7 +123,7 @@ function OrderPage() {
                             <div className="d-flex align-items-center">
                               <a
                                 className="reset-anchor d-block animsition-link"
-                                href=""
+                                href="#"
                               >
                                 <img
                                   src={product.product.img}
@@ -134,7 +135,7 @@ function OrderPage() {
                                 <strong className="h6">
                                   <a
                                     className="reset-anchor animsition-link text-secondary"
-                                    href="detail.html"
+                                    href="#"
                                   >
                                     {product.product.name}
                                   </a>
@@ -157,11 +158,9 @@ function OrderPage() {
                                 Quantity
                               </span>
                               <div className="quantity ">
-                                <input
-                                  className="form-control form-control-sm border-0 shadow-0 m-0 "
-                                  type="text"
-                                  value={product.quantity}
-                                />
+                                <p className="form-control form-control-sm border-0 shadow-0 m-0 ">
+                                  {product.quantity}
+                                </p>
                               </div>
                             </div>
                           </td>
@@ -185,13 +184,13 @@ function OrderPage() {
                     style={{ flex: 1 }}
                     className="d-flex justify-content-center"
                   >
-                    <h4>{order.orderStatus}</h4>
+                    <p>{order.orderStatus}</p>
                   </div>
                   <div
                     style={{ flex: 1 }}
                     className="d-flex justify-content-center"
                   >
-                    <h4>{order.payStatus}</h4>
+                    <p>{order.payStatus}</p>
                   </div>
                 </div>
                 <div className="control d-flex justify-content-center ">

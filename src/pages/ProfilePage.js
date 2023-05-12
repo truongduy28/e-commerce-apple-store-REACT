@@ -5,6 +5,7 @@ import TabFilter from "../components/Profile/TabFilter";
 import axios from "axios";
 import { API } from "../ENV_KEY";
 import OrderItem from "../components/Profile/OrderItem";
+import Footer from "../components/Layout/Footer";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
@@ -44,23 +45,26 @@ const ProfilePage = () => {
     }, [filterTab]);
 
     return (
-      <div className="page-holder">
-        <Header />
-        <div className="container">
-          <TabFilter filterState={{ filterTab, setFilterTab }} />
-          <div className=" ">
-            {isLoading ? (
-              <h2> Loading...</h2>
-            ) : orderList.length !== 0 ? (
-              orderList.map((order) => (
-                <OrderItem order={order} key={order._id} />
-              ))
-            ) : (
-              <h2>No order</h2>
-            )}
+      <>
+        <div className="page-holder">
+          <Header />
+          <div className="container">
+            <TabFilter filterState={{ filterTab, setFilterTab }} />
+            <div className=" ">
+              {isLoading ? (
+                <h2 className="text-center py-5"> Loading...</h2>
+              ) : orderList.length !== 0 ? (
+                orderList.map((order) => (
+                  <OrderItem order={order} key={order._id} />
+                ))
+              ) : (
+                <h2>No order</h2>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+        <Footer />
+      </>
     );
   };
 

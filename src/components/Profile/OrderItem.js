@@ -1,20 +1,30 @@
-import React from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useEffect, useState } from "react";
 import { formatHHMMDDMMYYY } from "../../services/function";
 import { useNavigate } from "react-router";
 const OrderItem = ({ order }) => {
   const navigate = useNavigate();
+  const [totalProductQuantity, setTotalProductQuantity] = useState(0);
+  useEffect(() => {
+    const totalQuantity = order.product.reduce(
+      (total, { quantity }) => total + quantity,
+      0
+    );
+    setTotalProductQuantity(totalQuantity);
+  }, [order]);
+
   return (
-    <div className="d-flex justify-content-between align-items-center mt-4 border">
+    <div className="d-flex justify-content-between align-items-center mt-4 border ">
       <div className="ps-0 py-3 border-light" scope="row">
-        <div className="d-flex align-items-center">
-          <a className="reset-anchor d-block animsition-link" href="">
+        <div className="d-flex align-items-center px-5">
+          <a className="reset-anchor d-block animsition-link" href="#">
             <img src={order.product[0].product.img} alt="..." width={70} />
           </a>
           <div className="ms-3">
             <strong className="h6">
               <a
                 className="reset-anchor animsition-link text-secondary"
-                href="detail.html"
+                href="#"
               >
                 {order.product[0].product.name}
               </a>
@@ -30,16 +40,13 @@ const OrderItem = ({ order }) => {
       <div className="p-3 align-middle border-light">
         <div className=" d-flex align-items-center justify-content-between px-3">
           <span className="small text-uppercase text-gray headings-font-family">
-            Quantity total {order.product.length} items
+            Quantity total {totalProductQuantity} items
           </span>
         </div>
       </div>
-      <div className="p-3 align-middle border-light d-flex justify-content-center flex-column align-items-center">
+      <div className="py-3 px-5 align-middle border-light d-flex justify-content-center flex-column align-items-center">
         <strong className="h6">
-          <a
-            className="reset-anchor animsition-link text-secondary"
-            href="detail.html"
-          >
+          <a className="reset-anchor animsition-link text-secondary" href="#">
             {formatHHMMDDMMYYY(order.createdAt)}
           </a>
         </strong>
@@ -50,18 +57,12 @@ const OrderItem = ({ order }) => {
           View order
         </div>
         <strong className="h6">
-          <a
-            className="reset-anchor animsition-link text-secondary"
-            href="detail.html"
-          >
+          <a className="reset-anchor animsition-link text-secondary" href="#">
             {order.orderStatus}
           </a>
         </strong>
         <strong className="h6">
-          <a
-            className="reset-anchor animsition-link text-secondary"
-            href="detail.html"
-          >
+          <a className="reset-anchor animsition-link text-secondary" href="#">
             {order.payStatus}
           </a>
         </strong>

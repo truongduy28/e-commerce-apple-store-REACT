@@ -71,12 +71,6 @@ const Header = () => {
                   </small>
                 </Link>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#!">
-                  <AiOutlineHeart />
-                  <small className="text-gray fw-normal"> (0)</small>
-                </a>
-              </li>
               {logedUser ? (
                 <>
                   <li className="nav-item">

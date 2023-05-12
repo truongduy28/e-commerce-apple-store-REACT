@@ -2,7 +2,14 @@ import React from "react";
 import { AiOutlineHeart, AiOutlineExpand } from "react-icons/ai";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../context/cartContext";
+import { showSuccessToast } from "./../../services/toast";
 const ProductItem = ({ product }) => {
+  const { addToCart } = useCartContext();
+  const handleAddToCart = () => {
+    addToCart(product);
+    showSuccessToast("Product added successfully");
+  };
   return (
     <div className="col-xl-3 col-lg-4 col-sm-6">
       <div className="product text-center">
@@ -14,34 +21,26 @@ const ProductItem = ({ product }) => {
           <div className="product-overlay">
             <ul className="mb-0 list-inline">
               <li className="list-inline-item m-0 p-0">
-                <a className="btn btn-sm btn-outline-dark" href="#!">
-                  <AiOutlineHeart />
-                </a>
-              </li>
-              <li className="list-inline-item m-0 p-0">
-                <a className="btn btn-sm btn-dark" href="cart.html">
-                  Add to cart
-                </a>
-              </li>
-              <li className="list-inline-item me-0">
-                <a
-                  className="btn btn-sm btn-outline-dark"
-                  href="#productView"
-                  data-bs-toggle="modal"
+                <p
+                  className="btn btn-sm btn-dark"
+                  onClick={() => {
+                    handleAddToCart();
+                  }}
                 >
-                  <AiOutlineExpand />
-                </a>
+                  Add to cart
+                </p>
               </li>
+              <li className="list-inline-item me-0"></li>
             </ul>
           </div>
         </div>
         <h6>
-          <a className="reset-anchor text-secondary" href="detail.html">
+          <p className="reset-anchor text-secondary" href="#">
             {product.name}
-          </a>
+          </p>
         </h6>
         <p className="small text-muted">
-          $ {String(product.price).replace(/(.)(?=(\d{3})+$)/g, "$1,")}
+          {String(product.price).replace(/(.)(?=(\d{3})+$)/g, "$1,")} VNĐ
         </p>
       </div>
     </div>

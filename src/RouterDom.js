@@ -1,8 +1,5 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
-import CheckOut from "./components/CheckOut";
-import ProductOfCategory from "./components/ProductOfCategory";
 import FullProductPage from "./pages/FullProductPage";
 import ProductDetailsPage from "./pages/ProductDetailPage";
 import CartPage from "./pages/CartPage";
@@ -18,8 +15,6 @@ const RouterDom = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/Product-Details/:id" element={<ProductDetailsPage />} />
         <Route path="/Cart" element={<CartPage />} />
-        <Route path="/Checkout" element={<CheckOut />} />
-        <Route path="/ProductOfCategory" element={<ProductOfCategory />} />
         <Route path="/products" element={<FullProductPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
