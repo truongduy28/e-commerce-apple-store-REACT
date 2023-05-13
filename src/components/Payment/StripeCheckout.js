@@ -86,7 +86,7 @@ const StripeCheckout = ({ currentOrder }) => {
           disabled={isProcessing || !stripe || !elements}
           id="submit"
           // style={{ margin: "20px auto" }}
-          className="btn btn-dark  w-100"
+          className="btn btn-dark  w-100 mt-2"
         >
           <span id="button-text" className=" ">
             {isProcessing ? "Processing ... " : "Pay now"}
