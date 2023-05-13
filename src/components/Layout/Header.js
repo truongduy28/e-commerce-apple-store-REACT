@@ -8,6 +8,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { useCartContext } from "../../context/cartContext";
 import { logOutUser } from "../../services/function";
+import { BiLogOut, BiLogOutCircle } from "react-icons/bi";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -61,10 +62,10 @@ const Header = () => {
               ))}
             </ul>
             <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/cart">
-                  <AiOutlineShoppingCart />
-                  Cart
+              <li className="nav-item ">
+                <Link className="nav-link d-flex align-items-center" to="/cart">
+                  <AiOutlineShoppingCart style={{ marginRight: "5px" }} />
+                  <span> Cart</span>
                   <small className="text-gray fw-normal">
                     {" "}
                     ({products.length === 0 ? 0 : products.length})
@@ -73,15 +74,24 @@ const Header = () => {
               </li>
               {logedUser ? (
                 <>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/profile">
-                      <AiOutlineUser />
-                      {logedUser.name}
+                  <li className="nav-item ">
+                    <Link
+                      className="nav-link   d-flex align-items-center"
+                      to="/profile"
+                    >
+                      <AiOutlineUser style={{ marginRight: "5px" }} />
+                      <span>{logedUser.name}</span>
                     </Link>
                   </li>
                   <li className="nav-item" onClick={() => handleLogout()}>
-                    <p className="nav-link">
-                      <AiOutlineUser />
+                    <p
+                      className="nav-link d-flex align-items-center"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <BiLogOut
+                        color="#757575"
+                        style={{ marginRight: "5px" }}
+                      />
                       Logout
                     </p>
                   </li>
