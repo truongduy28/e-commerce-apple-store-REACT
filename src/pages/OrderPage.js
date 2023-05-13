@@ -32,6 +32,15 @@ function OrderPage() {
     getData();
   }, [id]);
 
+  const handleCancelOrder = async (status) => {
+    const { data } = await axios.put(
+      `${API}/orders/change-status-order/${id}`,
+      { status }
+    );
+
+    setOrder({ ...order, orderStatus: data.order.orderStatus });
+  };
+
   return (
     <div className="page-holder">
       <Header />
@@ -71,7 +80,7 @@ function OrderPage() {
                 <div style={{ flex: 1 }}>
                   <div className="info d-flex  align-items-center justify-content-end gap-2">
                     <p>Total amount: </p>
-                    <p>{formatPrice(order.total)} vnđ</p>
+                    <p>$ {formatPrice(order.total)} </p>
                   </div>
                   <div className="info d-flex  align-items-center justify-content-end gap-2">
                     <p>Total product quantity: </p>
@@ -193,9 +202,14 @@ function OrderPage() {
                     <p>{order.payStatus}</p>
                   </div>
                 </div>
-                <div className="control d-flex justify-content-center ">
-                  <div className="btn btn-danger  ">CANCEL ORDER</div>
-                </div>
+                {order.orderStatus.toLowerCase() === "chờ xác nhận" && (
+                  <div
+                    className="control d-flex justify-content-center "
+                    onClick={() => handleCancelOrder("Hủy đơn")}
+                  >
+                    <div className="btn btn-danger  ">CANCEL ORDER</div>
+                  </div>
+                )}
               </div>
             </div>
           )

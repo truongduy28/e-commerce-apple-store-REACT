@@ -40,7 +40,7 @@ const ProductItem = ({ product }) => {
           </p>
         </h6>
         <p className="small text-muted">
-          {String(product.price).replace(/(.)(?=(\d{3})+$)/g, "$1,")} VNĐ
+          $ {String(product.price).replace(/(.)(?=(\d{3})+$)/g, "$1,")}
         </p>
       </div>
     </div>

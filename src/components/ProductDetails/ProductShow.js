@@ -64,7 +64,7 @@ const ProductShow = ({ product }) => {
             </ul>
             <h1>{product.name}</h1>
             <p className="text-muted lead font-weight-bold text-dark">
-              {String(product.price).replace(/(.)(?=(\d{3})+$)/g, "$1,")} VNĐ
+              ${String(product.price).replace(/(.)(?=(\d{3})+$)/g, "$1,")}
             </p>
             <p className="text-sm mb-4">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut
