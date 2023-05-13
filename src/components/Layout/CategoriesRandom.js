@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { API } from "../../ENV_KEY";
+import { Link } from "react-router-dom";
 const CategoriesRandom = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [randomCategory, setRandomCategory] = useState([]);
@@ -33,9 +34,9 @@ const CategoriesRandom = () => {
           </p>
           <h2 className="h5 text-uppercase mb-4">Browse our categories</h2>
         </header>
-        <div className="row align-items-center">
+        <div className="row alignitemc">
           <div className="col-md-4">
-            <a className="category-item " href="#">
+            <Link className="category-item " to="/products">
               <img
                 className="img-fluid max-w-h-cate-in-home-1-4"
                 src={randomCategory[0].img}
@@ -45,10 +46,10 @@ const CategoriesRandom = () => {
               <strong className="category-item-title text-secondary ">
                 {randomCategory[0].name}
               </strong>
-            </a>
+            </Link>
           </div>
           <div className="col-md-4">
-            <a className="category-item mb-4 " href="#">
+            <Link className="category-item mb-4 " to="/products">
               <img
                 className="img-fluid max-w-h-cate-in-home-2-3"
                 src={randomCategory[1].img}
@@ -58,8 +59,8 @@ const CategoriesRandom = () => {
               <strong className="category-item-title text-secondary">
                 {randomCategory[1].name}
               </strong>
-            </a>
-            <a className="category-item " href="#">
+            </Link>
+            <Link className="category-item " to="/products">
               <img
                 className="img-fluid max-w-h-cate-in-home-2-3"
                 src={randomCategory[2].img}
@@ -69,10 +70,10 @@ const CategoriesRandom = () => {
               <strong className="category-item-title text-secondary">
                 {randomCategory[2].name}
               </strong>
-            </a>
+            </Link>
           </div>
           <div className="col-md-4">
-            <a className="category-item " href="#">
+            <Link className="category-item " to="/products">
               <img
                 className="img-fluid max-w-h-cate-in-home-1-4"
                 src={randomCategory[3].img}
@@ -82,7 +83,7 @@ const CategoriesRandom = () => {
               <strong className="category-item-title text-secondary">
                 {randomCategory[3].name}
               </strong>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

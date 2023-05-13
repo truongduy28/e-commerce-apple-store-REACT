@@ -23,7 +23,7 @@ const SeacrhFillter = ({ fetchState, cateFillterState }) => {
           onClick={() => handleChangeCategory("all")}
         >
           <a
-            className={`reset-anchor ${
+            className={`reset-anchor text-uppercase ${
               cateFillter === "all" ? "text-white " : "text-dark "
             }`}
             href="#!"
@@ -34,7 +34,7 @@ const SeacrhFillter = ({ fetchState, cateFillterState }) => {
         {categories.lenght === 0 ? (
           <li className="mb-2">
             <a className="reset-anchor text-dark" href="#!">
-              Women's T-Shirts
+              Loading...{" "}
             </a>
           </li>
         ) : (
@@ -49,7 +49,7 @@ const SeacrhFillter = ({ fetchState, cateFillterState }) => {
               onClick={() => handleChangeCategory(category.name)}
             >
               <a
-                className={`reset-anchor ${
+                className={`reset-anchor text-uppercase ${
                   cateFillter === category.name.toLowerCase()
                     ? "text-white "
                     : "text-dark "

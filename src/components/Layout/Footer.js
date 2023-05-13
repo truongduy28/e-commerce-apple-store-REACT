@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
 const Footer = () => {
@@ -90,17 +91,14 @@ const Footer = () => {
             <div className="row">
               <div className="col-md-6 text-center text-md-start">
                 <p className="small text-muted mb-0">
-                  © 2021 All rights reserved.
+                  © 2023 All rights reserved.
                 </p>
               </div>
               <div className="col-md-6 text-center text-md-end">
                 <p className="small text-muted mb-0">
                   Template designed by
-                  <a
-                    className="text-white reset-anchor"
-                    href="https://bootstrapious.com/p/boutique-bootstrap-e-commerce-template"
-                  >
-                    Bootstrapious
+                  <a className="text-white reset-anchor ml-2" href="#">
+                    E-COMMERCE / KTPM0119
                   </a>
                 </p>
               </div>

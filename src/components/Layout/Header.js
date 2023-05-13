@@ -38,7 +38,9 @@ const Header = () => {
       <div className="container px-lg-3 py-0">
         <nav className="navbar navbar-expand-lg navbar-light py-3 px-lg-0">
           <a className="navbar-brand" href="index.html">
-            <span className="fw-bold text-uppercase text-dark">Boutique</span>
+            <span className="fw-bold text-uppercase text-dark">
+              Apple Store
+            </span>
           </a>
           <button
             className="navbar-toggler navbar-toggler-end"
