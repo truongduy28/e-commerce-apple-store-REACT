@@ -118,9 +118,11 @@ const CartPage = () => {
                       </tr>
                     </thead>
                     {products.length === 0 ? (
-                      <div className="text-center">
-                        <img src={emptycart} width={200} />
-                      </div>
+                      <tr className="text-center border-0 ">
+                        <td colSpan={5}>
+                          <h2 className="mt-5">Empty cart</h2>
+                        </td>
+                      </tr>
                     ) : (
                       <tbody className="border-0">
                         {products.map((product) => (

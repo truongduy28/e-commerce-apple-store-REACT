@@ -34,7 +34,7 @@ const CategoriesRandom = () => {
           </p>
           <h2 className="h5 text-uppercase mb-4">Browse our categories</h2>
         </header>
-        <div className="row alignitemc">
+        <div className="row align-items-center">
           <div className="col-md-4">
             <Link className="category-item " to="/products">
               <img
