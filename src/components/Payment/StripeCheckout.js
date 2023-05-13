@@ -87,7 +87,7 @@ const StripeCheckout = ({ currentOrder }) => {
           id="submit"
           style={{ margin: "20px auto" }}
         >
-          <span id="button-text" className="pay-onl">
+          <span id="button-text" className="pay-onl btn btn-dark">
             {isProcessing ? "Processing ... " : "Pay now"}
           </span>
         </button>
