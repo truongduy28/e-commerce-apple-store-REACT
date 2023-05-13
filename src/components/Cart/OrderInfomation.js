@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import StripePay from "../Payment/StripePay";
 
 const OrderInfomation = ({ state }) => {
   const { orderInfo, setOrderInfo, handleCreateOrder } = state;
@@ -62,10 +63,12 @@ const OrderInfomation = ({ state }) => {
             type="submit"
             onClick={() => handleCreateOrder()}
           >
-            COMFIRM ORDER
+            COMFIRM ORDER WITH COD PAYMENT
           </button>
         </div>
       </div>
+
+      <StripePay currentOrder={orderInfo} />
     </div>
   ) : (
     <div>
