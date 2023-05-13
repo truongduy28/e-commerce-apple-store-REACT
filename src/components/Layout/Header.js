@@ -37,11 +37,11 @@ const Header = () => {
     <header className="header bg-white">
       <div className="container px-lg-3 py-0">
         <nav className="navbar navbar-expand-lg navbar-light py-3 px-lg-0">
-          <a className="navbar-brand" href="index.html">
+          <Link className="navbar-brand" to="/">
             <span className="fw-bold text-uppercase text-dark">
               Apple Store
             </span>
-          </a>
+          </Link>
           <button
             className="navbar-toggler navbar-toggler-end"
             type="button"
