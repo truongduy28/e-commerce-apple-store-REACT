@@ -58,6 +58,9 @@ const StripeCheckout = ({ currentOrder }) => {
 
     const { error } = await stripe.confirmPayment({
       elements,
+      confirmParams: {
+        return_url: `${window.location.origin}/profile`,
+      },
     });
 
     if (error.type === "card_error" || error.type === "validation_error") {
@@ -67,8 +70,6 @@ const StripeCheckout = ({ currentOrder }) => {
     }
 
     setIsProcessing(false);
-
-    navigate("/profile");
   };
 
   return (
