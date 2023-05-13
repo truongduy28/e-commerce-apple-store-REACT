@@ -41,7 +41,7 @@ const LoginPage = () => {
         className="bg order-1 order-md-2"
         style={{
           backgroundImage:
-            "url('https://www.pickfu.com/blog/wp-content/uploads/2019/09/e-commerce-product-images.jpg')",
+            "url('https://static.digit.in/default/tr:w-1200/a660228dbbb89c5fde5fb31b632689b4c899a881.jpeg')",
         }}
       ></div>
       <div className="contents order-2 order-md-1">
@@ -51,7 +51,7 @@ const LoginPage = () => {
               <div className="form-block">
                 <div className="text-center mb-5">
                   <h3>
-                    Login to <strong>Colorlib</strong>
+                    Login to <strong>Apple Store</strong>
                   </h3>
                   <p className="mb-4">
                     Lorem ipsum dolor sit amet elit. Sapiente sit aut eos
@@ -64,7 +64,7 @@ const LoginPage = () => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="your-email@gmail.com"
+                      placeholder="Your-email@gmail.com"
                       id="username"
                       value={dataLogin.email}
                       onChange={(e) =>
@@ -92,17 +92,12 @@ const LoginPage = () => {
                         Create a new account
                       </Link>
                     </label>
-                    <span className="ml-auto">
-                      <a href="#" className="forgot-pass">
-                        Forgot Password
-                      </a>
-                    </span>
                   </div>
 
                   <input
                     type="submit"
                     value="Log In"
-                    className="btn btn-block btn-primary"
+                    className="btn btn-block btn-dark"
                   />
                 </form>
               </div>

@@ -42,7 +42,7 @@ const RegisterPage = () => {
         className="bg order-1 order-md-2"
         style={{
           backgroundImage:
-            "url('https://www.pickfu.com/blog/wp-content/uploads/2019/09/e-commerce-product-images.jpg')",
+            "url('https://forums.macrumors.com/attachments/2082749/')",
         }}
       ></div>
       <div className="contents order-2 order-md-1">
@@ -52,7 +52,7 @@ const RegisterPage = () => {
               <div className="form-block">
                 <div className="text-center mb-5">
                   <h3>
-                    Register to <strong>Colorlib</strong>
+                    Register to <strong>Apple Store</strong>
                   </h3>
                   <p className="mb-4">
                     Lorem ipsum dolor sit amet elit. Sapiente sit aut eos
@@ -65,7 +65,7 @@ const RegisterPage = () => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="your-email@gmail.com"
+                      placeholder="Your-email@gmail.com"
                       id="username"
                       value={dataRegister.email}
                       onChange={(e) =>
@@ -81,7 +81,7 @@ const RegisterPage = () => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Duy"
+                      placeholder="Username"
                       id="username"
                       value={dataRegister.username}
                       onChange={(e) =>
@@ -111,21 +111,16 @@ const RegisterPage = () => {
 
                   <div className="d-sm-flex mb-5 align-items-center">
                     <label className="control control--checkbox mb-3 mb-sm-0">
-                      <Link to="/register" className="forgot-pass">
-                        Create a new account
+                      <Link to="/login" className="forgot-pass">
+                        Go to the Login
                       </Link>
                     </label>
-                    <span className="ml-auto">
-                      <a href="#" className="forgot-pass">
-                        Forgot Password
-                      </a>
-                    </span>
                   </div>
 
                   <input
                     type="submit"
                     value="Register"
-                    className="btn btn-block btn-primary"
+                    className="btn btn-block btn-dark"
                   />
                 </form>
               </div>
