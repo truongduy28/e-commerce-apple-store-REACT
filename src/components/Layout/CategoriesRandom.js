@@ -33,7 +33,7 @@ const CategoriesRandom = () => {
           </p>
           <h2 className="h5 text-uppercase mb-4">Browse our categories</h2>
         </header>
-        <div className="row">
+        <div className="row align-items-center">
           <div className="col-md-4">
             <a className="category-item " href="#">
               <img

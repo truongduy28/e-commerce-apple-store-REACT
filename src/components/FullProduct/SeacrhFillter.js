@@ -1,8 +1,9 @@
 import React from "react";
+import { BiSearch } from "react-icons/bi";
 
 const SeacrhFillter = ({ fetchState, cateFillterState }) => {
   const { categories } = fetchState;
-  const { cateFillter, setcateFillter } = cateFillterState;
+  const { cateFillter, setcateFillter, query, setQuery } = cateFillterState;
 
   const handleChangeCategory = (category) => {
     setcateFillter(category.toLowerCase());
@@ -61,6 +62,19 @@ const SeacrhFillter = ({ fetchState, cateFillterState }) => {
           ))
         )}
       </ul>
+
+      <h5 className="text-uppercase mb-4">Products name</h5>
+      <div className="border p-2 w-100 d-flex align-items-center gap-2">
+        <BiSearch size={20} color={"#757575"} />
+        <input
+          type="text"
+          placeholder="Enter product name ..."
+          className="border-0 "
+          style={{ flex: 1, outline: "none" }}
+          onChange={(e) => setQuery(e.target.value)}
+          value={query}
+        />
+      </div>
     </div>
   );
 };

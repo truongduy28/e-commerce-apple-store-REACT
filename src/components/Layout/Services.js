@@ -7,7 +7,7 @@ const Services = () => {
     <>
       <section className="py-5 bg-light">
         <div className="container">
-          <div className="row text-center gy-3">
+          <div className="row text-center gy-3 align-items-center">
             <div className="col-lg-4">
               <div className="d-inline-block">
                 <div className="d-flex align-items-end">

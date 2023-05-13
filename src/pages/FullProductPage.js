@@ -7,6 +7,7 @@ import axios from "axios";
 import { API } from "../ENV_KEY";
 import Header from "../components/Layout/Header";
 import Footer from "../components/Layout/Footer";
+import useDebounce from "./../hooks/useDebounce";
 
 function FullProductPage() {
   const [fullProductsInit, setFullProductsInit] = useState([]);
@@ -14,6 +15,8 @@ function FullProductPage() {
   const [categories, setCategories] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [cateFillter, setcateFillter] = useState("all");
+  const [query, setQuery] = useState("");
+  const debounceQueryName = useDebounce(query, 1500);
 
   useEffect(() => {
     const getProductsData = async () => {
@@ -46,15 +49,29 @@ function FullProductPage() {
   useEffect(() => {
     if (fullProductsInit.length === 0) return;
     // console.log(fullProductsInit);
+    let productCategoryFilterArr = [];
+    let productNameFillterArr = [];
+
     if (cateFillter === "all") {
-      setFullProducts(fullProductsInit);
+      productCategoryFilterArr = fullProductsInit;
     } else {
-      const filledProducts = fullProductsInit.filter(
+      productCategoryFilterArr = fullProductsInit.filter(
         (product) => product.categoryId.name.toLowerCase() === cateFillter
       );
-      setFullProducts(filledProducts);
     }
-  }, [cateFillter]);
+
+    setFullProducts(productCategoryFilterArr);
+
+    if (!debounceQueryName) {
+      productNameFillterArr = productCategoryFilterArr;
+    } else {
+      productNameFillterArr = productCategoryFilterArr.filter((product) =>
+        product.name.toLowerCase().includes(debounceQueryName.toLowerCase())
+      );
+    }
+
+    setFullProducts(productNameFillterArr);
+  }, [cateFillter, debounceQueryName]);
 
   return (
     <div className="page-holder">
@@ -70,7 +87,7 @@ function FullProductPage() {
                 <nav aria-label="breadcrumb">
                   <ol className="breadcrumb justify-content-lg-end mb-0 px-0 bg-light">
                     <li className="breadcrumb-item">
-                      <a className="text-dark" href="index.html">
+                      <a className="text-dark" href="#">
                         Home
                       </a>
                     </li>
@@ -89,7 +106,12 @@ function FullProductPage() {
               {/* SHOP SIDEBAR*/}
               <SeacrhFillter
                 fetchState={{ categories }}
-                cateFillterState={{ cateFillter, setcateFillter }}
+                cateFillterState={{
+                  cateFillter,
+                  setcateFillter,
+                  query,
+                  setQuery,
+                }}
               />
               {/* SHOP LISTING*/}
               <ProductsContainer fetchState={{ isLoading, fullProducts }} />
