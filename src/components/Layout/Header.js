@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCartContext } from "../../context/cartContext";
 import { handleLogout } from "../../services/function";
 import { BiLogOut } from "react-icons/bi";
-import { RIGHTS } from "../../data";
+import { NAV_LINK, RIGHTS } from "../../data";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -17,11 +17,6 @@ const Header = () => {
   }
 
   const { products } = useCartContext();
-  const NAV_LINK = [
-    { name: "Home", uri: "" },
-    { name: "Products", uri: "products" },
-    { name: "About", uri: "about" },
-  ];
 
   const [logedUser, setLogedUser] = useState(INIT);
 

@@ -18,7 +18,12 @@ const ProductItem = ({ product }) => {
         <div className="position-relative mb-3">
           <div className="badge text-white bg-" />
           <Link className="d-block" to={"/product-details/" + product._id}>
-            <img className="img-fluid w-100" src={product.img} alt="..." />
+            <img
+              className="img-fluid w-100"
+              src={product.img}
+              alt="..."
+              loading="lazy"
+            />
           </Link>
           <div className="product-overlay">
             <ul className="mb-0 list-inline">
