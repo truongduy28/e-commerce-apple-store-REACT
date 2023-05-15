@@ -6,7 +6,7 @@ const FooterCol = ({ footerItem }) => {
       <h6 className="text-uppercase mb-3">{footerItem.topic}</h6>
       <ul className="list-unstyled mb-0">
         {footerItem.children.map((child, index) => (
-          <li>
+          <li key={index}>
             <a className="footer-link" href="#!">
               {child}
             </a>

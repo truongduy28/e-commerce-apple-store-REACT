@@ -9,8 +9,6 @@ const SeacrhFillter = ({ fetchState, cateFillterState }) => {
     setcateFillter(category.toLowerCase());
   };
 
-  console.log(cateFillter);
-
   return (
     <div className="col-lg-3 order-2 order-lg-1">
       <h5 className="text-uppercase mb-4">Categories</h5>

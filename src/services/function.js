@@ -7,7 +7,6 @@ export const formatPrice = (price) => {
 };
 
 export const formatHHMMDDMMYYY = (dateString) => {
-  console.log(dateString);
   const date = new Date(dateString);
   const hours = date.getHours();
   const minutes = date.getMinutes();

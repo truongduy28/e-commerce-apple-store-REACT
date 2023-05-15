@@ -55,8 +55,8 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto">
-              {NAV_LINK.map((nav) => (
-                <li className="nav-item">
+              {NAV_LINK.map((nav, index) => (
+                <li className="nav-item" key={index}>
                   <Link className="nav-link " to={"/" + nav.uri}>
                     {nav.name}
                   </Link>
