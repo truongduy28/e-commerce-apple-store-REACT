@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { Header, Footer } from "../components/Layout";
 import TabFilter from "../components/Profile/TabFilter";

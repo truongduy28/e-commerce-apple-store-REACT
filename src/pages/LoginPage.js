@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { showErrorToast, showSuccessToast } from "../services/toast";

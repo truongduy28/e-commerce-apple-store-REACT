@@ -32,7 +32,7 @@ const ProductRandom = () => {
         {isLoading ? (
           <h2>Loading... </h2>
         ) : productRandom.length === 0 ? (
-          <h2>k co sp</h2>
+          <h2>Can't load products or server is stoped!</h2>
         ) : (
           <div className="row">
             {productRandom.map((product) => (

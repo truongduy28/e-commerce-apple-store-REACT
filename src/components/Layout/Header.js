@@ -18,6 +18,7 @@ const Header = () => {
 
   const { products } = useCartContext();
 
+  // eslint-disable-next-line no-unused-vars
   const [logedUser, setLogedUser] = useState(INIT);
 
   return (
