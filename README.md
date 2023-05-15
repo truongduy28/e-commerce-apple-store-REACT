@@ -78,5 +78,5 @@ I'm a Front end developer, i can use ReactJS to create 1 website, linking and ha
 
 ## License
 
-[MIT]([https://choosealicense.com/licenses/mit/](https://github.com/truongduy28/e-commerce-REACT/blob/main/LICENSE))
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]([https://opensource.org/licenses/MIT](https://github.com/truongduy28/e-commerce-REACT/blob/main/LICENSE))
 
