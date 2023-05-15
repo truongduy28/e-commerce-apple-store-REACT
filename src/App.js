@@ -1,9 +1,10 @@
 import React from "react";
 import "../src/assets/css/style.default.min.css";
 import "./pages/style.css";
-import Nagigation from "./Nagigation";
+import Navigation from "./Navigation";
+
 const App = () => {
-  return <Nagigation />;
+  return <Navigation />;
 };
 
 export default App;

@@ -12,7 +12,7 @@ import {
   RegisterPage,
 } from "./pages";
 
-const Nagigation = () => {
+const Navigation = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -28,4 +28,4 @@ const Nagigation = () => {
   );
 };
 
-export default Nagigation;
+export default Navigation;
