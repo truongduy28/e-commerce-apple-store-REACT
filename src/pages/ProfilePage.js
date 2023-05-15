@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
-import Header from "../components/Layout/Header";
+import { Header, Footer } from "../components/Layout";
 import TabFilter from "../components/Profile/TabFilter";
 import axios from "axios";
 import { API } from "../ENV_KEY";
 import OrderItem from "../components/Profile/OrderItem";
-import Footer from "../components/Layout/Footer";
 
 const ProfilePage = () => {
-  const navigate = useNavigate();
   let INIT = null;
   try {
     INIT = JSON.parse(localStorage.getItem("user-e-commerce")).user || null;
@@ -27,7 +24,6 @@ const ProfilePage = () => {
       const getData = async () => {
         setIsLoading(true);
         try {
-          // const res = await axios.get(`${API}/orders/all-order`);
           const res = await axios.get(`${API}/orders/${logedUser._id}`);
           if (filterTab.toLowerCase() === "all") {
             setOrderList(res.data.order);
@@ -68,7 +64,11 @@ const ProfilePage = () => {
     );
   };
 
-  return logedUser ? <ProfilePageShow /> : <h3>k o</h3>;
+  return logedUser ? (
+    <ProfilePageShow />
+  ) : (
+    <h3>Only loged user can access to this page!!!</h3>
+  );
 };
 
 export default ProfilePage;

@@ -4,7 +4,8 @@ import axios from "axios";
 import { API } from "../ENV_KEY";
 
 import ProductShow from "../components/ProductDetails/ProductShow";
-import Header from "../components/Layout/Header";
+import { Header } from "../components/Layout";
+
 const ProductDetailsPage = () => {
   const { id } = useParams();
   const [product, setproduct] = useState(null);
@@ -19,17 +20,14 @@ const ProductDetailsPage = () => {
       } catch (error) {
         console.log(error);
       }
-
       setIsLoading(false);
     };
     getProductData();
   }, [id]);
 
   return (
-    <>
-      <div className="page-holder">
-        <Header />
-      </div>
+    <div className="page-holder">
+      <Header />
       {isLoading ? (
         <h2>Loading...</h2>
       ) : product ? (
@@ -37,9 +35,9 @@ const ProductDetailsPage = () => {
           <ProductShow product={product} />
         </>
       ) : (
-        <h3>K hien thi</h3>
+        <h3>Product can't display or oops Server </h3>
       )}
-    </>
+    </div>
   );
 };
 

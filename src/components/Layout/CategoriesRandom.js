@@ -1,10 +1,10 @@
 import React from "react";
-
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { API } from "../../ENV_KEY";
 import { Link } from "react-router-dom";
+
 const CategoriesRandom = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [randomCategory, setRandomCategory] = useState([]);
@@ -24,7 +24,7 @@ const CategoriesRandom = () => {
   return isLoading ? (
     <h2>Loading...</h2>
   ) : randomCategory.length === 0 ? (
-    <h2>Chua co</h2>
+    <h2>Don't load category or server is stoped</h2>
   ) : (
     <>
       <section className="pt-5">

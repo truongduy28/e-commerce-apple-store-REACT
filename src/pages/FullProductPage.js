@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import Product from "../components/Layout/ProductRandom";
+import React, { useState, useEffect } from "react";
 import SeacrhFillter from "../components/FullProduct/SeacrhFillter";
 import ProductsContainer from "../components/FullProduct/ProductsContainer";
-import { useEffect } from "react";
 import axios from "axios";
 import { API } from "../ENV_KEY";
-import Header from "../components/Layout/Header";
-import Footer from "../components/Layout/Footer";
 import useDebounce from "./../hooks/useDebounce";
+import { Header, Footer } from "../components/Layout";
 
 function FullProductPage() {
   const [fullProductsInit, setFullProductsInit] = useState([]);

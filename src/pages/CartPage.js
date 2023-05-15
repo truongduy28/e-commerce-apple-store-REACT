@@ -17,7 +17,6 @@ import { useNavigate } from "react-router";
 import { showErrorToast, showSuccessToast } from "./../services/toast";
 import { Link } from "react-router-dom";
 import Footer from "../components/Layout/Footer";
-import emptycart from "../assets/emptycart.png";
 
 const CartPage = () => {
   let INIT = null;

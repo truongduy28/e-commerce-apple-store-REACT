@@ -1,6 +1,5 @@
 import React from "react";
-import Header from "../components/Layout/Header";
-import Footer from "../components/Layout/Footer";
+import { Header, Footer } from "../components/Layout";
 
 const AboutPage = () => {
   const certificates = [

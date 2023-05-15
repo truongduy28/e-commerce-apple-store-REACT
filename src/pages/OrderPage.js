@@ -1,16 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import Header from "../components/Layout/Header";
+import { Header } from "../components/Layout";
 import { useParams } from "react-router";
 import axios from "axios";
 import { API } from "../ENV_KEY";
 import { formatHHMMDDMMYYY, formatPrice } from "../services/function";
-import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
 
 function OrderPage() {
   const { id } = useParams();
-
   const [isLoading, setIsLoading] = useState(false);
   const [order, setOrder] = useState(null);
   const [totalProductQuantity, setTotalProductQuantity] = useState(0);

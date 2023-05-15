@@ -1,14 +1,9 @@
 import React from "react";
-import "../src/css/style.default.min.css";
+import "../src/assets/css/style.default.min.css";
 import "./pages/style.css";
-import RouterDom from "./RouterDom";
-import { useCartContext } from "./context/cartContext";
+import Nagigation from "./Nagigation";
 const App = () => {
-  return (
-    <>
-      <RouterDom />
-    </>
-  );
+  return <Nagigation />;
 };
 
 export default App;
