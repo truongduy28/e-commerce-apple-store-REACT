@@ -40,7 +40,21 @@ export const FOOTER_ARR = [
 ];
 
 export const RIGHTS = {
+  companyName: "Apple Store",
   rights: "© 2023 All rights reserved.",
   introduce: "Template designed by ",
   author: "Truong Duy - Boostrap 4",
 };
+
+export const TABLE_CART_DATA = {
+  TABLE_HEADER: ["Product", "Price", "Quantity", "Total", ""],
+};
+
+export const TAB_FILTER_ORDER = [
+  { en: "all", vn: "all" },
+  { en: "Waiting comfirm", vn: "Chờ xác nhận" },
+  { en: "Comfirmed", vn: "Đã xác nhận" },
+  { en: "Shipping", vn: "Đang giao hàng" },
+  { en: "Done", vn: "Đã giao hàng" },
+  { en: "Cancel", vn: "Hủy đơn" },
+];

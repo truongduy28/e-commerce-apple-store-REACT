@@ -1,22 +1,17 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import {
-  GrCaretPrevious,
-  GrCaretNext,
-  GrFormPreviousLink,
-} from "react-icons/gr";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import HeaderCart from "../components/Cart/HeaderCart";
+import { GrFormPreviousLink } from "react-icons/gr";
+import { HeaderCart, CartItem, OrderTotal } from "../components/Cart";
 import { useCartContext } from "../context/cartContext";
-import OrderTotal from "../components/Cart/OrderTotal";
-import Header from "../components/Layout/Header";
+import { Header, Footer } from "../components/Layout";
 import axios from "axios";
 import { API } from "../ENV_KEY";
 import { useNavigate } from "react-router";
 import { showErrorToast, showSuccessToast } from "./../services/toast";
 import { Link } from "react-router-dom";
-import Footer from "../components/Layout/Footer";
+import { TABLE_CART_DATA } from "../data";
 
 const CartPage = () => {
   let INIT = null;
@@ -75,6 +70,7 @@ const CartPage = () => {
       // naviga("/order");
     } catch (error) {}
   };
+
   return (
     <>
       <div className="page-holder">
@@ -91,29 +87,19 @@ const CartPage = () => {
                   <table className="table text-nowrap">
                     <thead className="bg-light">
                       <tr>
-                        <th className="border-0 p-3" scope="col">
-                          <strong className="text-sm text-uppercase">
-                            Product
-                          </strong>
-                        </th>
-                        <th className="border-0 p-3" scope="col">
-                          <strong className="text-sm text-uppercase">
-                            Price
-                          </strong>
-                        </th>
-                        <th className="border-0 p-3" scope="col">
-                          <strong className="text-sm text-uppercase">
-                            Quantity
-                          </strong>
-                        </th>
-                        <th className="border-0 p-3" scope="col">
-                          <strong className="text-sm text-uppercase">
-                            Total
-                          </strong>
-                        </th>
-                        <th className="border-0 p-3" scope="col">
-                          <strong className="text-sm text-uppercase" />
-                        </th>
+                        {TABLE_CART_DATA.TABLE_HEADER.map(
+                          (tableHeader, index) => (
+                            <th
+                              className="border-0 p-3"
+                              key={index}
+                              scope="col"
+                            >
+                              <strong className="text-sm text-uppercase">
+                                {tableHeader}
+                              </strong>
+                            </th>
+                          )
+                        )}
                       </tr>
                     </thead>
                     {products.length === 0 ? (
@@ -125,90 +111,15 @@ const CartPage = () => {
                     ) : (
                       <tbody className="border-0">
                         {products.map((product) => (
-                          <tr>
-                            <th className="ps-0 py-3 border-light" scope="row">
-                              <div className="d-flex align-items-center">
-                                <a
-                                  className="reset-anchor d-block animsition-link"
-                                  href=""
-                                >
-                                  <img
-                                    src={product.product.img}
-                                    alt="..."
-                                    width={70}
-                                  />
-                                </a>
-                                <div className="ms-3">
-                                  <strong className="h6">
-                                    <a
-                                      className="reset-anchor animsition-link text-secondary"
-                                      href="detail.html"
-                                    >
-                                      {product.product.name}
-                                    </a>
-                                  </strong>
-                                </div>
-                              </div>
-                            </th>
-                            <td className="p-3 align-middle border-light">
-                              <p className="mb-0 small">
-                                ${" "}
-                                {String(product.product.price).replace(
-                                  /(.)(?=(\d{3})+$)/g,
-                                  "$1,"
-                                )}
-                              </p>
-                            </td>
-                            <td className="p-3 align-middle border-light">
-                              <div className="border d-flex align-items-center justify-content-between px-3">
-                                <span className="small text-uppercase text-gray headings-font-family">
-                                  Quantity
-                                </span>
-                                <div className="quantity ">
-                                  <button
-                                    className="dec-btn p-0"
-                                    onClick={() =>
-                                      decreaseQuantity(product.product._id)
-                                    }
-                                  >
-                                    <GrCaretPrevious />
-                                  </button>
-                                  <input
-                                    className="form-control form-control-sm border-0 shadow-0 m-0 "
-                                    type="text"
-                                    value={product.quantity}
-                                  />
-                                  <button
-                                    className="inc-btn p-0"
-                                    onClick={() =>
-                                      increaseQuantity(product.product._id)
-                                    }
-                                  >
-                                    <GrCaretNext />
-                                  </button>
-                                </div>
-                              </div>
-                            </td>
-                            <td className="p-3 align-middle border-light">
-                              <p className="mb-0 small">
-                                $
-                                {String(
-                                  product.product.price * product.quantity
-                                ).replace(/(.)(?=(\d{3})+$)/g, "$1,")}
-                              </p>
-                            </td>
-                            <td className="p-3 align-middle border-light">
-                              <a
-                                className="reset-anchor text-dark"
-                                href="#!"
-                                onClick={() =>
-                                  removeProduct(product.product._id)
-                                }
-                              >
-                                <RiDeleteBin6Line />
-                              </a>
-                            </td>
-                          </tr>
+                          <CartItem
+                            key={product.product._id}
+                            product={product}
+                            fn={{
+                              increaseQuantity,
+                              removeProduct,
+                              decreaseQuantity,
+                            }}
+                          />
                         ))}
                       </tbody>
                     )}

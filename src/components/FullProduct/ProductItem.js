@@ -1,15 +1,17 @@
 import React from "react";
-import { AiOutlineHeart, AiOutlineExpand } from "react-icons/ai";
-import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/cartContext";
 import { showSuccessToast } from "./../../services/toast";
+import { formatPrice } from "../../services/function";
+
 const ProductItem = ({ product }) => {
   const { addToCart } = useCartContext();
+
   const handleAddToCart = () => {
     addToCart(product);
     showSuccessToast("Product added successfully");
   };
+
   return (
     <div className="col-xl-3 col-lg-4 col-sm-6">
       <div className="product text-center">
@@ -23,9 +25,7 @@ const ProductItem = ({ product }) => {
               <li className="list-inline-item m-0 p-0">
                 <p
                   className="btn btn-sm btn-dark"
-                  onClick={() => {
-                    handleAddToCart();
-                  }}
+                  onClick={() => handleAddToCart()}
                 >
                   Add to cart
                 </p>
@@ -39,9 +39,7 @@ const ProductItem = ({ product }) => {
             {product.name}
           </p>
         </h6>
-        <p className="small text-muted">
-          $ {String(product.price).replace(/(.)(?=(\d{3})+$)/g, "$1,")}
-        </p>
+        <p className="small text-muted">$ {formatPrice(product.price)}</p>
       </div>
     </div>
   );

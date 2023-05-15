@@ -45,23 +45,6 @@ const ProductShow = ({ product }) => {
           </div>
           {/* PRODUCT DETAILS*/}
           <div className="col-lg-6">
-            <ul className="list-inline mb-2 text-sm">
-              <li className="list-inline-item m-0">
-                <i className="fas fa-star small text-warning" />
-              </li>
-              <li className="list-inline-item m-0 1">
-                <i className="fas fa-star small text-warning" />
-              </li>
-              <li className="list-inline-item m-0 2">
-                <i className="fas fa-star small text-warning" />
-              </li>
-              <li className="list-inline-item m-0 3">
-                <i className="fas fa-star small text-warning" />
-              </li>
-              <li className="list-inline-item m-0 4">
-                <i className="fas fa-star small text-warning" />
-              </li>
-            </ul>
             <h1>{product.name}</h1>
             <p className="text-muted lead font-weight-bold text-dark">
               ${String(product.price).replace(/(.)(?=(\d{3})+$)/g, "$1,")}
@@ -73,7 +56,6 @@ const ProductShow = ({ product }) => {
               ultricies aliquam convallis.
             </p>
             <div className="row align-items-stretch mb-4">
-              <div className="col-sm-4 pr-sm-0"></div>
               <div
                 className="col-sm-3 pl-sm-0 w-50"
                 onClick={() => handleAddProductToCart()}

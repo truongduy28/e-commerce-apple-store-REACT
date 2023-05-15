@@ -44,7 +44,7 @@ const ProfilePage = () => {
       <>
         <div className="page-holder">
           <Header />
-          <div className="container">
+          <div className="container pb-4">
             <TabFilter filterState={{ filterTab, setFilterTab }} />
             <div className=" ">
               {isLoading ? (
@@ -54,7 +54,7 @@ const ProfilePage = () => {
                   <OrderItem order={order} key={order._id} />
                 ))
               ) : (
-                <h2>No order</h2>
+                <h4 className="text-center my-5">No orders!</h4>
               )}
             </div>
           </div>

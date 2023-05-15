@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 const OrderItem = ({ order }) => {
   const navigate = useNavigate();
   const [totalProductQuantity, setTotalProductQuantity] = useState(0);
+
   useEffect(() => {
     const totalQuantity = order.product.reduce(
       (total, { quantity }) => total + quantity,
@@ -15,7 +16,7 @@ const OrderItem = ({ order }) => {
 
   return (
     <div className="d-flex justify-content-between align-items-center mt-4 border ">
-      <div className="ps-0 py-3 border-light" scope="row">
+      <div className="ps-0 py-3 border-light">
         <div className="d-flex align-items-center px-5">
           <a className="reset-anchor d-block animsition-link" href="#">
             <img src={order.product[0].product.img} alt="..." width={70} />

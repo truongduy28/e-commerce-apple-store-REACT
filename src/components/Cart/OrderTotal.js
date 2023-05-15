@@ -1,6 +1,7 @@
 import React from "react";
 import { useCartContext } from "../../context/cartContext";
 import OrderInfomation from "./OrderInfomation";
+import { formatPrice } from "../../services/function";
 
 function OrderTotal({ state }) {
   const { getTotalPrice } = useCartContext();
@@ -15,7 +16,7 @@ function OrderTotal({ state }) {
                 Subtotal
               </strong>
               <span className="text-muted small">
-                $ {String(getTotalPrice()).replace(/(.)(?=(\d{3})+$)/g, "$1,")}
+                $ {formatPrice(getTotalPrice())}
               </span>
             </li>
             <li className="border-bottom my-2" />
@@ -23,9 +24,7 @@ function OrderTotal({ state }) {
               <strong className="text-uppercase small font-weight-bold">
                 Total
               </strong>
-              <span>
-                $ {String(getTotalPrice()).replace(/(.)(?=(\d{3})+$)/g, "$1,")}
-              </span>
+              <span>$ {formatPrice(getTotalPrice())}</span>
             </li>
             <li>
               <div>

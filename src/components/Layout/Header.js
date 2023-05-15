@@ -1,14 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import {
-  AiOutlineShoppingCart,
-  AiOutlineHeart,
-  AiOutlineUser,
-} from "react-icons/ai";
+import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { useCartContext } from "../../context/cartContext";
-import { logOutUser } from "../../services/function";
-import { BiLogOut, BiLogOutCircle } from "react-icons/bi";
+import { handleLogout } from "../../services/function";
+import { BiLogOut } from "react-icons/bi";
+import { RIGHTS } from "../../data";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -28,18 +25,13 @@ const Header = () => {
 
   const [logedUser, setLogedUser] = useState(INIT);
 
-  const handleLogout = () => {
-    logOutUser();
-    navigate("/login");
-  };
-
   return (
     <header className="header bg-white">
       <div className="container px-lg-3 py-0">
         <nav className="navbar navbar-expand-lg navbar-light py-3 px-lg-0">
           <Link className="navbar-brand" to="/">
             <span className="fw-bold text-uppercase text-dark">
-              Apple Store
+              {RIGHTS.companyName}
             </span>
           </Link>
           <button
@@ -85,7 +77,10 @@ const Header = () => {
                       <span>{logedUser.name}</span>
                     </Link>
                   </li>
-                  <li className="nav-item" onClick={() => handleLogout()}>
+                  <li
+                    className="nav-item"
+                    onClick={() => handleLogout(navigate)}
+                  >
                     <p
                       className="nav-link d-flex align-items-center"
                       style={{ cursor: "pointer" }}

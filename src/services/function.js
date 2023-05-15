@@ -15,3 +15,8 @@ export const formatHHMMDDMMYYY = (dateString) => {
   const year = date.getFullYear();
   return `${hours}:${minutes} ${day}/${month}/${year}`;
 };
+
+export const handleLogout = (navigate) => {
+  logOutUser();
+  navigate("/login");
+};

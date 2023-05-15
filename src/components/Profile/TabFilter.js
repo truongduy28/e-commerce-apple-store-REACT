@@ -1,19 +1,12 @@
 import React from "react";
+import { TAB_FILTER_ORDER } from "./../../data/index";
 
 const TabFilter = ({ filterState }) => {
   const { filterTab, setFilterTab } = filterState;
-  const TAB = [
-    { en: "all", vn: "all" },
-    { en: "Waiting comfirm", vn: "Chờ xác nhận" },
-    { en: "Comfirmed", vn: "Đã xác nhận" },
-    { en: "Shipping", vn: "Đang giao hàng" },
-    { en: "Done", vn: "Đã giao hàng" },
-    { en: "Cancel", vn: "Hủy đơn" },
-  ];
 
   return (
     <div className="d-flex w-100 border border-dark">
-      {TAB.map((t) => (
+      {TAB_FILTER_ORDER.map((t) => (
         <div
           onClick={() => setFilterTab(t.vn)}
           style={{ flex: 1, cursor: "pointer" }}
